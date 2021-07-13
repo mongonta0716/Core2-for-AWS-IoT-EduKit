@@ -62,7 +62,7 @@ static inline void disp_spi_send_data(uint8_t *data, size_t length) {
 
 static inline void disp_spi_send_colors(uint8_t *data, size_t length) {
     disp_spi_transaction(data, length,
-        DISP_SPI_SEND_QUEUED | DISP_SPI_SIGNAL_FLUSH,
+        (disp_spi_send_flag_t)(DISP_SPI_SEND_QUEUED | DISP_SPI_SIGNAL_FLUSH),
         NULL, 0);
 }
 

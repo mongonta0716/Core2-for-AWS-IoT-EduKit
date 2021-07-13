@@ -7,6 +7,8 @@ list(APPEND COMPONENT_ADD_INCLUDEDIRS i2c_bus)
 list(APPEND COMPONENT_SRCDIRS axp192)
 list(APPEND COMPONENT_ADD_INCLUDEDIRS axp192)
 
+set(COMPONENT_PRIV_REQUIRES LovyanGFX)
+
 if(CONFIG_SOFTWARE_ILI9342C_SUPPORT OR CONFIG_SOFTWARE_SDCARD_SUPPORT)
     file(GLOB_RECURSE childdir LIST_DIRECTORIES true */lvgl/lvgl/src/*)
     foreach (child ${childdir})
@@ -59,5 +61,7 @@ if(CONFIG_SOFTWARE_RTC_SUPPORT)
     list(APPEND COMPONENT_ADD_INCLUDEDIRS bm8563)
 endif()
 
-set(COMPONENT_REQUIRES "mbedtls" "esp-cryptoauthlib" "fatfs" "esp_adc_cal")
+set(COMPONENT_REQUIRES "mbedtls" "esp-cryptoauthlib" "fatfs" "esp_adc_cal" "LovyanGFX")
 register_component()
+
+
